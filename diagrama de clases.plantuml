@@ -1,0 +1,106 @@
+@startuml Diagrama de clases
+
+class Cliente {
+    - identificador: DNI
+    - nombre: NombrePersona
+    - apellidos: ApellidosPersona
+    --
+    + Cliente(identificador: DNI, nombre: NombrePersona, apellidos: ApellidosPersona)
+    + {static} create(identificador: String, nombre: String, apellidos: String)
+}
+
+class DNI {
+    - id: String
+    --
+    + DNI(id: String)
+    + {static} create(id: String)
+}
+
+class NombrePersona {
+    - string: String
+    --
+    + NombrePersona(id: String)
+    + {static} create(id: String)
+}
+
+class ApellidosPersona {
+    - string: String
+}
+
+class Cuenta {
+    - iban: IBAN
+    - saldo: SaldoCuenta
+    - titular : DNI
+    --
+    + Cuenta(iban: IBAN, saldo: SaldoCuenta, titular : DNI)
+    + {static} create(iban: String, saldo: Int, titular: String)
+}
+
+class SaldoCuenta {
+    - saldo: Int
+    --
+    + SaldoCuenta(saldo: Int)
+    + {static} create(saldo: Int)
+}
+
+class IBAN {
+    - id: String
+    --
+    + IBAN(id: String)
+    + {static} create(id: String)
+}
+
+' Primitivas, valida todo
+' Value objects, no valida
+' En los value objects habría que crear un segundo constructor que no valida
+class Transferencia {
+    - origen: IBAN
+    - destino: IBAN
+    - identificador: Int
+    - importe: ImporteTransferencia
+    - fecha: Date
+    - concepto: Concepto?
+    --
+    + Transferencia(origen: IBAN, destino: IBAN, identificador: Int, importe: ImporteTransferencia, fecha: Date, concepto: Concepto)  
+    + {static} create(transferenciaModel: TransferenciaModel)
+}
+
+class TransferenciaModel{
+    - origen: String
+    - saldoCuentaOrigen: Int
+    - destino: String
+    - identificador: Int
+    - importe: Int
+    - fecha: Date
+    - concepto: String?
+    --
+    + TransferenciaModel(origen: String, saldoCuentaOrigen: Int, destino: String, identificador: Int, importe: Int, fecha: Date, concepto: String)
+}
+
+class ImporteTransferencia {
+    - cons minimumvalue = 30
+    - importe: Int
+    --
+    + ImporteTransferencia(importe: Int)
+    + {static} create(importe: Int, importeMaximo: Int)
+}
+
+class Concepto {
+    - texto: String
+    --
+    + Concepto(texto: String)
+    + {static} create(texto: String)
+}
+
+
+Cliente *-- DNI
+Cliente *-- IBAN
+Cliente *-- NombrePersona
+Cliente *-- ApellidosPersona
+Cuenta *-- IBAN
+Cuenta *-- SaldoCuenta
+Cuenta *-- DNI
+Transferencia *-- IBAN
+Transferencia *-- ImporteTransferencia
+
+@enduml
