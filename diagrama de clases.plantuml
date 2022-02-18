@@ -79,10 +79,11 @@ class TransferenciaModel{
 
 class ImporteTransferencia {
     - cons minimumvalue = 30
+    - cons maximumvalue = 3000
     - importe: Int
     --
     + ImporteTransferencia(importe: Int)
-    + {static} create(importe: Int, importeMaximo: Int)
+    + {static} create(importe: Int, saldoCuentaOrigen: Int)
 }
 
 class Concepto {
@@ -102,5 +103,7 @@ Cuenta *-- SaldoCuenta
 Cuenta *-- DNI
 Transferencia *-- IBAN
 Transferencia *-- ImporteTransferencia
+Transferencia *-- TransferenciaModel
+Transferencia *-- Concepto
 
 @enduml

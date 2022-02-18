@@ -1,47 +1,49 @@
-Ejemplo sencillo
+Ejemplo sencillo.
 
-Una aplicación que permita hacer transferencias a otras cuentas
+Una aplicación que permita hacer transferencias a otras cuentas.
 
-- Departamento de oficinas físicas (sucursales)
+- Departamento de oficinas físicas (sucursales).
 
-- Problema: llegan clientes y les piden que hagan transferencias a otras cuentas
+- Problema: llegan clientes y les piden que hagan transferencias a otras cuentas.
 
-- clientes: 
-    - Alguien que tiene una cuenta
-    - No se pueden crear cuentas, suponemos que existen cuentas para ellos
-    - Tiene un identificador de cliente
-        - El identificador será el DNI
-    - Tendrá nombre y apellidos
-    - Un cliente puede solicitar que se hagan transferencias
+- Clientes: 
+    - Alguien que tiene una cuenta.
+    - No se pueden crear cuentas, suponemos que existen cuentas para ellos.
+    - Tiene un identificador de cliente.
+        - El identificador será el DNI.
+    - Tendrá nombre y apellidos.
+    - Un cliente puede solicitar que se hagan transferencias.
 
 - DNI:
-    - identificador compuesto por 8 dígitos y un caracter de control 
+    - identificador compuesto por 8 dígitos y un caracter de control.
 
-- cuentas:
-    - Tendrán un IBAN para identificar a la cuenta
-    - Tendrá un saldo, que es la cantidad de dinero que hay en la cuenta
-    - Debería tener una referencia al cliente al que le pertenece, que se llama el titular de la cuenta
-    - Solo tratamos cantidades en euros
-    - El saldo de una cuenta se actualizará cuando se haga una transferencia
-        - En la cuenta de origen se quitará el importe de la transferencia
-        - En la cuenta de destino se sumará el importe de la transferencia
+- Cuentas:
+    - Tendrán un IBAN para identificar a la cuenta.
+    - Tendrá un saldo, que es la cantidad de dinero que hay en la cuenta.
+    - Debería tener una referencia al cliente al que le pertenece, que se llama el titular de la cuenta.
+    - Solo tratamos cantidades en euros.
+    - El saldo de una cuenta se actualizará cuando se haga una transferencia.
+        - En la cuenta de origen se quitará el importe de la transferencia.
+        - En la cuenta de destino se sumará el importe de la transferencia.
 
 - IBAN:
-    - identificador compuesto por ES + 18 dígitos
+    - identificador compuesto por ES + 18 dígitos.
 
 - SaldoCuenta:
-    - Los saldos de cuenta solo tendrán valores enteros, no habrá decimales
+    - Los saldos de cuenta solo tendrán valores enteros, no habrá decimales.
 
-- transferencias:
-    - Una transferencia tiene una cuenta origen y una cuenta destino
-    - Cada transferencia tiene un importe, que es la cantidad de dinero que se transfiere
-    - Una transferencia tiene un identificador de tipo Int
-    - El identificador de la transferencia tiene que ser único (autoincrementado)
-    - No se pueden hacer transferencias de un importe mayor que el saldo que hay en la cuenta
-    - No se pueden hacer transferencias de un importe negativo
+- Transferencias:
+    - Una transferencia tiene una cuenta origen y una cuenta destino.
+    - Cada transferencia tiene un importe, que es la cantidad de dinero que se transfiere.
+    - Una transferencia tiene un identificador de tipo Int.
+    - El identificador de la transferencia tiene que ser único (autoincrementado).
+    - No se pueden hacer transferencias de un importe mayor que el saldo que hay en la cuenta.
+    - No se pueden hacer transferencias de un importe negativo.
+    - Todas las transferencias tienen una cantidad mínima y máxima a transferir.
+    - La cantidad a transferir estará limitada por el saldo de la cuenta. 
     - Estas restricciones se formalizarán en unas reglas que se aplicarán en el momento de realizar la transferencia.
-    - Las transfencias solo pueden ser en euros
-    - Las transferencias se hacen en el momento, tiene una fecha
-    - Una transferencia puede tener un concepto, es opcional, no tiene por qué registarse
+    - Las transfencias solo pueden ser en euros.
+    - Las transferencias se hacen en el momento, tiene una fecha.
+    - Una transferencia puede tener un concepto, es opcional, no tiene por qué registarse.
 
-* Nos quedamos por el momento en la definición de clientes, cuentas y transferencias
+* Nos quedamos por el momento en la definición de clientes, cuentas y transferencias.
