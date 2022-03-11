@@ -1,0 +1,16 @@
+# OS X files 
+.DS_Store
+
+# Java class files
+*.class
+
+# generated files
+bin/
+gen/
+
+# Gradle stuff
+.gradle/
+build/
+.idea/
+out/
+*.iml
